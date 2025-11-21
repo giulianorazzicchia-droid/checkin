@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect…</title>
+
+  <script>
+    // prendi id dall'URL del QR (es. ?id=E001)
+    const p = new URLSearchParams(location.search);
+    const id = p.get("id");
+
+    // URL reale della tua WebApp Google
+    const TARGET = "https://n-lvpvg5ltp7zthdmsdvkd3bbcacwqkzxwp4kuefq-0lu-script.googleusercontent.com/exec";
+
+    if (id) {
+      // redirect JS dopo il caricamento
+      // Android non può interferire
+      window.location.replace(TARGET + "?id=" + encodeURIComponent(id));
+    } else {
+      document.body.innerHTML = "<h2>ID evento mancante</h2>";
+    }
+  </script>
+
+</head>
+<body></body>
+</html>
